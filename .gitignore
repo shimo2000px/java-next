@@ -3,3 +3,4 @@
 .env.*.local
 .claude/settings.local.json
 .claude/CLAUDE.local.md
+backend/target/

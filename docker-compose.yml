@@ -28,7 +28,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/authdb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/mealplanner
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=postgres
       - APP_JWT_SECRET=your-256-bit-secret-key-here-min-32-chars!!
@@ -42,7 +42,7 @@ services:
   db:
     image: postgres:15-alpine
     environment:
-      - POSTGRES_DB=authdb
+      - POSTGRES_DB=mealplanner
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     volumes:

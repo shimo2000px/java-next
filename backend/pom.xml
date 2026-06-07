@@ -4,10 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <!--
-    Spring Boot 3.2.x を採用（Java 17 / Spring Security 6.x）
-    2.x に切り替える場合: version を 2.7.18 に変更し、SecurityConfig のコメントを参照
-  -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,48 +12,37 @@
   </parent>
 
   <groupId>com.example</groupId>
-  <artifactId>auth</artifactId>
+  <artifactId>mealplanner</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>auth</name>
-  <description>JWT Authentication with Spring Boot</description>
+  <name>mealplanner</name>
+  <description>献立自動化アプリ バックエンド</description>
 
   <properties>
     <java.version>17</java.version>
   </properties>
 
   <dependencies>
-    <!-- Web MVC (REST API) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
-
-    <!-- Spring Security (6.x) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
-
-    <!-- JPA / Hibernate -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-
-    <!-- Bean Validation (@Valid, @NotBlank, etc.) -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-validation</artifactId>
     </dependency>
-
-    <!-- PostgreSQL JDBC ドライバ -->
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
       <scope>runtime</scope>
     </dependency>
-
-    <!-- JWT ライブラリ (jjwt 0.12.x) -->
     <dependency>
       <groupId>io.jsonwebtoken</groupId>
       <artifactId>jjwt-api</artifactId>
@@ -75,14 +60,6 @@
       <version>0.12.3</version>
       <scope>runtime</scope>
     </dependency>
-
-    <!-- Lombok: ボイラープレートコード削減 (@Getter, @Builder など) -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <optional>true</optional>
-    </dependency>
-
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -95,14 +72,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-            </exclude>
-          </excludes>
-        </configuration>
       </plugin>
     </plugins>
   </build>
