@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface StockRepository extends JpaRepository<Stock, Long> {
     List<Stock> findByIsAvailable(boolean isAvailable);
+    List<Stock> findByIsAvailableAndCategory(boolean isAvailable, String category);
 }
