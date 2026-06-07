@@ -1,6 +1,7 @@
 package com.example.mealplanner.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 public class RecipeRequest {
 
@@ -8,7 +9,8 @@ public class RecipeRequest {
     private String name;
 
     @NotBlank(message = "カテゴリは必須です")
-    private String category; // main_dish / rice / noodle
+    @Pattern(regexp = "^(main_dish|rice|noodle)$", message = "category は main_dish/rice/noodle のいずれか")
+    private String category;
 
     private String size; // large / medium / small（任意）
     private String memo; // 任意

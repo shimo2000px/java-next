@@ -20,8 +20,8 @@ public class RecipeController {
     }
 
     @GetMapping
-    public List<RecipeResponse> findAll() {
-        return recipeService.findAll();
+    public List<RecipeResponse> findAll(@RequestParam(required = false) String category) {
+        return recipeService.findAll(category);
     }
 
     @PostMapping
