@@ -20,10 +20,11 @@ public class RecipeService {
     }
 
     // Phase 2 でログインユーザー絞り込みに変更予定
-    public List<RecipeResponse> findAll() {
-        return recipeRepository.findAll().stream()
-                .map(RecipeResponse::from)
-                .toList();
+    public List<RecipeResponse> findAll(String category) {
+        List<Recipe> recipes = (category != null && !category.isBlank())
+                ? recipeRepository.findByCategory(category)
+                : recipeRepository.findAll();
+        return recipes.stream().map(RecipeResponse::from).toList();
     }
 
     @Transactional
