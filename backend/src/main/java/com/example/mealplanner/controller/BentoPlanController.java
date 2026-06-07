@@ -1,5 +1,6 @@
 package com.example.mealplanner.controller;
 
+import com.example.mealplanner.dto.BentoPlanRandomRequest;
 import com.example.mealplanner.dto.BentoPlanRequest;
 import com.example.mealplanner.dto.BentoPlanResponse;
 import com.example.mealplanner.service.BentoPlanService;
@@ -25,6 +26,12 @@ public class BentoPlanController {
     public List<BentoPlanResponse> findByWeek(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate weekOf) {
         return bentoPlanService.findByWeek(weekOf);
+    }
+
+    @PostMapping("/random")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<BentoPlanResponse> randomize(@Valid @RequestBody BentoPlanRandomRequest request) {
+        return bentoPlanService.randomize(request);
     }
 
     @PostMapping
